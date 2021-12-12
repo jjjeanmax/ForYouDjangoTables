@@ -1,0 +1,21 @@
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'statement/auth_style.css' %}">
+<div class='bold-line'></div>
+<div class='container'>
+    <form method="post">
+        <div class='window'>
+            <div class='overlay'></div>
+            <div class='content'>
+                {% csrf_token %}
+                <div class='welcome'>Hello There!</div>
+                <div class='subtitle'>Before using our services you need to login an account.</div>
+                {{ form.as_p }}
+                <div><input type="submit" class='ghost-round full-width' name="Login" value="Login"></input></div>
+                <a href=" {% url 'register' %}"><div class='subtitle'>Sign up</div></a>
+            </div>
+        </div>
+    </form>
+
+</div>
+{% endblock %}
